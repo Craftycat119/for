@@ -1,71 +1,71 @@
 class House:
-    def init(self, name, floors):
+    def __init__(self, name, floors):
         self.name = name
         self.floors = floors
 
-    def str(self):
+    def __str__(self):
         return f'Название: {self.name}, кол-во этажей: {self.floors}'
     
-    def eq(self, other):
+    def __eq__(self, other):
         if isinstance(other, House):
             return self.floors == other.floors
         elif isinstance(other, int):
             return self.floors == other
             
-    def lt(self, other):
+    def __lt__(self, other):
         if isinstance(other, House):
             return self.floors < other.floors
         elif isinstance(other, int):
             return self.floors < other
 
-    def le(self, other):
+    def __le__(self, other):
         if isinstance(other, House):
             return self.floors <= other.floors
         elif isinstance(other, int):
             return self.floors <= other
 
-    def gt(self, other):
+    def __gt__(self, other):
         if isinstance(other, House):
             return self.floors > other.floors
         elif isinstance(other, int):
             return self.floors > other
 
-    def ge(self, other):
+    def __ge__(self, other):
         if isinstance(other, House):
             return self.floors >= other.floors
         elif isinstance(other, int):
             return self.floors >= other
 
-    def ne(self, other):
+    def __ne__(self, other):
         if isinstance(other, House):
             return self.floors != other.floors
         elif isinstance(other, int):
             return self.floors != other
 
-    def add(self, value):
+    def __add__(self, value):
         self.floors += value
         return self
 
-    def radd(self, value):
-        return self.add(value)
+    def __radd__(self, value):
+        return self.__add__(value)
 
-    def iadd(self, value):
-        return self.add(value)
+    def __iadd__(self, value):
+        return self.__add__(value)
         
 h1 = House('ЖК Эльбрус', 10)
 h2 = House('ЖК Акация', 20)
 print(h1)
 print(h2)
-print(h1 == h2) # eq
-h1 = h1 + 10 # add
+print(h1 == h2) # __eq__
+h1 = h1 + 10 # __add__
 print(h1)
 print(h1 == h2)
-h1 += 10 # iadd
+h1 += 10 # __iadd__
 print(h1)
-h2 = 10 + h2 # radd
+h2 = 10 + h2 # __radd__
 print(h2)
-print(h1 > h2) # gt
-print(h1 >= h2) # ge
-print(h1 < h2) # lt
-print(h1 <= h2) # le
-print(h1 != h2) # ne
+print(h1 > h2) # __gt__
+print(h1 >= h2) # __ge__
+print(h1 < h2) # __lt__
+print(h1 <= h2) # __le__
+print(h1 != h2) # __ne__
