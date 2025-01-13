@@ -1,5 +1,5 @@
 class WordsFinder:
-    def __init__(self, [club100297865|*filenames]):
+    def __init__(self, *filenames):
         self.file_names = filenames
 
     def get_all_words(self):
